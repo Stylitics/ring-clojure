@@ -1,9 +1,13 @@
-(defproject ring/ring-core "1.12.2-patched-graal"
+(defproject net.clojars.stylitics-graal/ring-core "1.12.2-patched-graal"
   :description "Ring core libraries."
   :url "https://github.com/ring-clojure/ring"
   :scm {:dir ".."}
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
+  :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
+                                    :username :env/clojars_username
+                                    :password :env/clojars_password
+                                    :sign-releases false}]]
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.ring-clojure/ring-core-protocols "1.12.2"]
                  [org.ring-clojure/ring-websocket-protocols "1.12.2"]

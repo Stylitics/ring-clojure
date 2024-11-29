@@ -1,9 +1,14 @@
-(defproject ring "1.12.2"
+(defproject net.clojars.stylitics-graal/ring "1.12.2-patched-graal"
   :description "A Clojure web applications library."
   :url "https://github.com/ring-clojure/ring"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
-  :dependencies [[ring/ring-core "1.12.2"]
+  ;; don't know if i need to deploy both ring and ring-core to stylitics-graal
+  :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
+                                    :username :env/clojars_username
+                                    :password :env/clojars_password
+                                    :sign-releases false}]]
+  :dependencies [[ring/ring-core "1.12.2-patched-graal"] ;; unsure
                  [ring/ring-devel "1.12.2"]
                  [ring/ring-jetty-adapter "1.12.2"]
                  [org.ring-clojure/ring-jakarta-servlet "1.12.2"]]
