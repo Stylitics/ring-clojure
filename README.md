@@ -1,3 +1,19 @@
+Relevant to https://www.notion.so/stylitics/Graaling-widget-api-943c84d186e94d0eaeba6bb7eb6757e8
+
+The instructions for building a patched version of reitit are below. We need reitit to use a patched version of ring-core.
+
+- Clone Stylitics’ fork: https://github.com/Stylitics/ring-clojure/ and `lein install` in ring-clojure/ring-core. This installs `ring/ring-core “1.12.2-patched-graal”`  which is [this PR](https://github.com/ring-clojure/ring/pull/447) on top of ring’s master.
+    
+- Clone Stylitics’ fork: https://github.com/Stylitics/reitit, and run `lein install` in reitit/modules/reitit-ring and `lein install` in reitit/modules/reitit, in that order. clj-widget-api uses the lib `metosin/reitit "0.7.1-patched-graal”` in the draft omnibus PR https://github.com/Stylitics/clj-widget-api/pull/662, so we lein install both reitit-ring and the parent `reitit`, so we can use all reitit’s libs.
+
+To use the patched reitit, include it [from clojars](https://clojars.org/net.clojars.stylitics-graal/reitit). To update it ask Matt or another developer for the deploy keys and username and password. Once you have them the command is
+```shell
+CLOJARS_USERNAME=stylitics-graal CLOJARS_PASSWORD=the_password lein deploy clojars
+```
+I believe we only ring-core and reitit (not reitit-parent) on clojars, but I don't know how to delete things from clojars.
+
+
+
 # Ring [![Build Status](https://github.com/ring-clojure/ring/actions/workflows/test.yml/badge.svg)](https://github.com/ring-clojure/ring/actions/workflows/test.yml)
 
 Ring is a Clojure web applications library inspired by Python's WSGI
